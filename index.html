@@ -21,14 +21,15 @@
             background-color: #0078D4;
             transition: all 0.3s ease;
         }
-	.logo {
-    width: 70px;       /* Smaller size */
-    height: 60px;      /* Keep aspect ratio */
-    display: block;    /* Avoid inline space */
-    margin: 10px auto; /* Center horizontally with less space */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 3px 6px rgba(0,0,0,0.25); /* Subtle shadow */
-}
+        
+        .logo {
+            width: 60px;
+            height: 50px;
+            display: block;
+            margin: 5px auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+        }
         
         .btn-primary:hover {
             background-color: #106EBE;
@@ -49,11 +50,13 @@
             background: #0078D4;
             transition: width 0.3s;
         }
-	.carnival {
-            width: 300px;
+        
+        .carnival {
+            width: 100%;
+            max-width: 300px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            margin-top: 20px;
+            margin: 20px auto;
         }
         
         .nav-link:hover::after {
@@ -68,6 +71,58 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
+        
+        /* Mobile menu styles */
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image {
+                margin-top: 20px;
+                max-width: 100%;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-box {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -76,10 +131,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQesmfMD0X39RRCcxjotJtBLY4AA4A6HXkpUg&s"alt="MLSA Logo" class="logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQesmfMD0X39RRCcxjotJtBLY4AA4A6HXkpUg&s" alt="MLSA Logo" class="logo">
                     <span class="text-xl font-bold text-gray-800">MLSA LBSCEK</span>
                 </div>
-                <div class="hidden md:block">
+                <div class="hidden md:block desktop-nav">
                     <div class="ml-10 flex items-center space-x-8">
                         <a href="#about" class="nav-link text-gray-800 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</a>
                         <a href="#benefits" class="nav-link text-gray-800 hover:text-blue-600 px-3 py-2 text-sm font-medium">Benefits</a>
@@ -87,156 +142,191 @@
                         <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
                     </div>
                 </div>
-                <a href="#contact" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white btn-primary shadow-sm">Contact Us</a>
+                <div class="flex items-center">
+                    <a href="#contact" class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white btn-primary shadow-sm">Contact Us</a>
+                    <button class="md:hidden hamburger focus:outline-none" aria-label="Menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden bg-white w-full px-4 pb-4">
+            <div class="flex flex-col space-y-2">
+                <a href="#about" class="nav-link text-gray-800 hover:text-blue-600 px-3 py-2 text-sm font-medium block">About</a>
+                <a href="#benefits" class="nav-link text-gray-800 hover:text-blue-600 px-3 py-2 text-sm font-medium block">Benefits</a>
+                <a href="#events" class="nav-link text-gray-800 hover:text-blue-600 px-3 py-2 text-sm font-medium block">Events</a>
+                <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600 px-3 py-2 text-sm font-medium block">Contact</a>
+                <a href="#contact" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white btn-primary shadow-sm">Contact Us</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="gradient-bg text-white">
-        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
-                <div>
-                    <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center hero-content">
+                <div class="md:w-1/2">
+                    <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
                         Join the MLSA LBSCEK Community
                     </h1>
-                    <p class="mt-6 text-xl max-w-3xl">
+                    <p class="mt-4 text-lg max-w-3xl">
                         Become a part of the Microsoft Learn Student Ambassadors program, a global community recognized by Microsoft, and enhance your technical skills while making a difference.
                     </p>
-                    <div class="mt-10">
-                        <a href="#about" class="inline-flex items-center px-8 py-3 border border-white text-lg font-medium rounded-md text-white hover:bg-blue-700">
+                    <div class="mt-8">
+                        <a href="#about" class="inline-flex items-center px-6 py-2 border border-white text-base font-medium rounded-md text-white hover:bg-blue-700">
                             Learn More
                         </a>
                     </div>
                 </div>
-                <div class="mt-12 lg:mt-0">
-                    <img src="https://i.imghippo.com/files/waZ8436ZIQ.jpg" alt="Diverse group of student ambassadors collaborating" class="rounded-lg shadow-2xl animate-float">
+                <div class="mt-8 md:mt-0 md:w-1/2">
+                    <img src="https://i.imghippo.com/files/waZ8436ZIQ.jpg" alt="Diverse group of student ambassadors collaborating" class="rounded-lg shadow-2xl animate-float hero-image mx-auto">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            <div class="text-center">
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
                     About MLSA LBSCEK
                 </h2>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto">
                     MLSA (Microsoft Learn Student Ambassadors) is an MNC-approved global student community directly run by Microsoft, one of the world's biggest multinational tech companies.
                 </p>
-                <ul class="mt-6 text-left max-w-2xl mx-auto text-gray-600">
-                    <li>✔ You're officially part of a Microsoft-recognized program.</li>
-                    <li>✔ Direct resources, mentorship, and recognition from Microsoft.</li>
-                    <li>✔ Your title, achievements, and events are backed by Microsoft, adding credibility to your profile.</li>
-                    <li>✔ Official Microsoft Learn Student Ambassador title on LinkedIn & CV — globally recognized.</li>
+                <ul class="mt-4 text-left max-w-2xl mx-auto text-gray-600 space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>You're officially part of a Microsoft-recognized program.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Direct resources, mentorship, and recognition from Microsoft.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Your title, achievements, and events are backed by Microsoft, adding credibility to your profile.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Official Microsoft Learn Student Ambassador title on LinkedIn & CV — globally recognized.</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- Benefits Section -->
-    <section id="benefits" class="py-20 bg-blue-50">
+    <section id="benefits" class="py-12 bg-blue-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            <div class="text-center">
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
                     Perks & Benefits
                 </h2>
-                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                <p class="mt-3 max-w-2xl text-lg text-gray-600 mx-auto">
                     As an MLSA member, you'll enjoy exclusive benefits from Microsoft:
                 </p>
             </div>
             
-            <div class="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-medium text-gray-900">☁ $100+ Azure Credits</h3>
-                    <p class="mt-2 text-base text-gray-500">Monthly credits for free experimentation.</p>
+            <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 benefits-grid">
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-base font-medium text-gray-900">☁ $100+ Azure Credits</h3>
+                    <p class="mt-1 text-sm text-gray-500">Monthly credits for free experimentation.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-medium text-gray-900">🏅 Free Microsoft Certification Vouchers</h3>
-                    <p class="mt-2 text-base text-gray-500">For high-demand skills.</p>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-base font-medium text-gray-900">🏅 Free Microsoft Certification Vouchers</h3>
+                    <p class="mt-1 text-sm text-gray-500">For high-demand skills.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-medium text-gray-900">🎯 Fast-track to Imagine Cup</h3>
-                    <p class="mt-2 text-base text-gray-500">With direct Microsoft mentorship.</p>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-base font-medium text-gray-900">🎯 Fast-track to Imagine Cup</h3>
+                    <p class="mt-1 text-sm text-gray-500">With direct Microsoft mentorship.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-medium text-gray-900">🧑‍💼 1:1 Access to Microsoft Experts</h3>
-                    <p class="mt-2 text-base text-gray-500">Engage with engineers, product managers & community leads.</p>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-base font-medium text-gray-900">🧑‍💼 1:1 Access to Microsoft Experts</h3>
+                    <p class="mt-1 text-sm text-gray-500">Engage with engineers, product managers & community leads.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-medium text-gray-900">📦 Event-in-a-box Kits</h3>
-                    <p class="mt-2 text-base text-gray-500">Ready slides, demos & swag from Microsoft to host sessions.</p>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-base font-medium text-gray-900">📦 Event-in-a-box Kits</h3>
+                    <p class="mt-1 text-sm text-gray-500">Ready slides, demos & swag from Microsoft to host sessions.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-medium text-gray-900">🌏 Collaborate Globally</h3>
-                    <p class="mt-2 text-base text-gray-500">Work with MLSAs in 100+ countries on real-world projects.</p>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-base font-medium text-gray-900">🌏 Collaborate Globally</h3>
+                    <p class="mt-1 text-sm text-gray-500">Work with MLSAs in 100+ countries on real-world projects.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-medium text-gray-900">📢 Amplify Your Work</h3>
-                    <p class="mt-2 text-base text-gray-500">Get featured on Microsoft's global blogs & social media.</p>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-base font-medium text-gray-900">📢 Amplify Your Work</h3>
+                    <p class="mt-1 text-sm text-gray-500">Get featured on Microsoft's global blogs & social media.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="py-20 bg-white">
+    <section id="events" class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            <div class="text-center">
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
                     MLSA Carnival
                 </h2>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto">
                     Fun-filled event with games, workshops and tech talks!
-
                 </p>
             </div>
             
-            <div class="mt-16 space-y-16">
-                <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-                    <div class="lg:col-start-2">
-                        <h3 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+            <div class="mt-8">
+                <div class="flex flex-col md:flex-row md:items-center event-content">
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-extrabold tracking-tight text-gray-900 sm:text-2xl">
                             MLSA Carnival 2025
                         </h3>
-                        <p class="mt-3 text-lg text-gray-500">
+                        <p class="mt-2 text-base text-gray-500">
                             Our flagship event featuring gaming competitions, hands-on workshops, and engaging tech talks.
                         </p>
                         
-                        <dl class="mt-10 space-y-10">
+                        <dl class="mt-6 space-y-4">
                             <div class="relative">
                                 <dt>
-                                    <div class="absolute h-12 w-12 rounded-md bg-blue-600 text-white flex items-center justify-center">
-                                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <div class="absolute h-10 w-10 rounded-md bg-blue-600 text-white flex items-center justify-center">
+                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p class="ml-16 text-lg font-medium leading-6 text-gray-900">Date & Time</p>
+                                    <p class="ml-12 text-base font-medium leading-6 text-gray-900">Date & Time</p>
                                 </dt>
-                                <dd class="mt-2 ml-16 text-base text-gray-500">August 10, 202 · 9:30AM-4:30AM</dd>
-
+                                <dd class="mt-1 ml-12 text-sm text-gray-500">August 10, 2025 · 9:30AM-4:30PM</dd>
                             </div>
                             
                             <div class="relative">
                                 <dt>
-                                    <div class="absolute h-12 w-12 rounded-md bg-green-600 text-white flex items-center justify-center">
-                                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <div class="absolute h-10 w-10 rounded-md bg-green-600 text-white flex items-center justify-center">
+                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
-                                <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-                            </svg>
+                                            <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                                        </svg>
                                     </div>
-                                    <p class="ml-16 text-lg font-medium leading-6 text-gray-900">Location</p>
+                                    <p class="ml-12 text-base font-medium leading-6 text-gray-900">Location</p>
                                 </dt>
-                                <dd class="mt-2 ml-16 text-base text-gray-500">OpenMind Makerspace</dd>
-
+                                <dd class="mt-1 ml-12 text-sm text-gray-500">OpenMind Makerspace</dd>
                             </div>
                         </dl>
                     </div>
                     
-                    <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1 lg:row-start-1">
+                    <div class="mt-6 md:mt-0 md:w-1/2">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzv_jvfN7Qqx5gGKOMxv5odiHpjlN6C9J5IQ&s" 
-             alt="Carnival" class="carnival">
+                             alt="Carnival" class="carnival">
                     </div>
                 </div>
             </div>
@@ -244,45 +334,43 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-12 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
                     Get In Touch
                 </h2>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto">
                     Have questions about MLSA LBSCEK? Contact us today!
                 </p>
             </div>
             
-            <div class="mt-16 flex justify-center">
-                <div class="bg-white rounded-lg shadow-md p-8">
-                    <ul class="space-y-4">
-                        <li class="flex">
-                            <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="mt-8 flex flex-col md:flex-row justify-center contact-container">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-4 md:mb-0 md:mr-4 contact-box">
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <svg class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             <span class="ml-3 text-gray-600">mlsalbscek@gmail.com</span>
                         </li>
-                        
-                        
                     </ul>
                 </div>
                 
-                <div class="bg-white rounded-lg shadow-md p-8 max-w-md">
-                    <h2 class="text-xl font-bold text-gray-900">Follow Us</h2>
-                    <p class="mt-4 text-gray-600">Connect with us through our social channels:</p>
-                    <div class="mt-6 flex justify-center space-x-6">
+                <div class="bg-white rounded-lg shadow-md p-6 max-w-md contact-box">
+                    <h2 class="text-lg font-bold text-gray-900">Follow Us</h2>
+                    <p class="mt-2 text-gray-600">Connect with us through our social channels:</p>
+                    <div class="mt-4 flex justify-center space-x-6">
                         <a href="https://www.linkedin.com/company/mlsalbscek/" target="_blank" class="text-blue-600 hover:text-blue-800" aria-label="LinkedIn – MLSA LBSCEK">
-  <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-  </svg>
-</a>
-                       <a href="https://www.instagram.com/mlsa.lbscek/" target="_blank" class="text-pink-600 hover:text-pink-800">
-    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.25 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2A3 3 0 1 0 12 15a3 3 0 0 0 0-6z"/>
-    </svg>
-</a>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/mlsa.lbscek/" target="_blank" class="text-pink-600 hover:text-pink-800">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.25 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2A3 3 0 1 0 12 15a3 3 0 0 0 0-6z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -291,47 +379,65 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                <div class="space-y-8 xl:col-span-1">
-                    <img src="https://i.imghippo.com/files/waZ8436ZIQ.jpg" class="h-10">
-                    <p class="text-gray-300 text-base">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:justify-between">
+                <div class="mb-6 md:mb-0">
+                    <img src="https://i.imghippo.com/files/waZ8436ZIQ.jpg" class="h-8">
+                    <p class="mt-2 text-gray-300 text-sm">
                         MLSA LBSCEK - Empowering students to build technical skills and leadership capabilities.
                     </p>
                 </div>
-                <div class="mt-12 grid grid-cols-1 gap-8 xl:mt-0 xl:col-start-3">
-                    <div class="md:grid md:grid-cols-2 md:gap-8">
-                        <div>
-                            <h3 class="text-sm font-semibold text-white tracking-wider uppercase">
-                                Quick Links
-                            </h3>
-                            <ul class="mt-4 space-y-4">
-                                <li>
-                                    <a href="#about" class="text-base text-gray-300 hover:text-white">
-                                        About MLSA
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#benefits" class="text-base text-gray-300 hover:text-white">
-                                        Member Benefits
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#events" class="text-base text-gray-300 hover:text-white">
-                                        Events
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                    <div>
+                        <h3 class="text-sm font-semibold text-white tracking-wider uppercase">
+                            Quick Links
+                        </h3>
+                        <ul class="mt-2 space-y-2">
+                            <li>
+                                <a href="#about" class="text-xs text-gray-300 hover:text-white">
+                                    About MLSA
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#benefits" class="text-xs text-gray-300 hover:text-white">
+                                    Member Benefits
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#events" class="text-xs text-gray-300 hover:text-white">
+                                    Events
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="mt-12 border-t border-gray-700 pt-8">
-                <p class="text-base text-gray-400 text-center">
+            <div class="mt-8 border-t border-gray-700 pt-6">
+                <p class="text-xs text-gray-400 text-center">
                     &copy; 2023 MLSA LBSCEK. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
