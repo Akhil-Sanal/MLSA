@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MLSA LBSCEK - Microsoft Learn Student Ambassadors</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap');
-        
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
         }
         
         .gradient-bg {
@@ -20,6 +25,7 @@
         .btn-primary {
             background-color: #0078D4;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         
         .logo {
@@ -132,7 +138,7 @@
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQesmfMD0X39RRCcxjotJtBLY4AA4A6HXkpUg&s" alt="MLSA Logo" class="logo">
-                    <span class="text-xl font-bold text-gray-800">MLSA LBSCEK</span>
+                    <span class="text-xl font-bold text-gray-800 font-display">MLSA LBSCEK</span>
                 </div>
                 <div class="hidden md:block desktop-nav">
                     <div class="ml-10 flex items-center space-x-8">
@@ -170,14 +176,14 @@
         <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-center hero-content">
                 <div class="md:w-1/2">
-                    <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+                    <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl font-display">
                         Join the MLSA LBSCEK Community
                     </h1>
-                    <p class="mt-4 text-lg max-w-3xl">
+                    <p class="mt-4 text-lg max-w-3xl font-light">
                         Become a part of the Microsoft Learn Student Ambassadors program, a global community recognized by Microsoft, and enhance your technical skills while making a difference.
                     </p>
                     <div class="mt-8">
-                        <a href="#about" class="inline-flex items-center px-6 py-2 border border-white text-base font-medium rounded-md text-white hover:bg-blue-700">
+                        <a href="#about" class="inline-flex items-center px-6 py-2 border border-white text-base font-medium rounded-md text-white hover:bg-blue-700 font-medium">
                             Learn More
                         </a>
                     </div>
@@ -193,10 +199,10 @@
     <section id="about" class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl font-display">
                     About MLSA LBSCEK
                 </h2>
-                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto">
+                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto font-light">
                     MLSA (Microsoft Learn Student Ambassadors) is an MNC-approved global student community directly run by Microsoft, one of the world's biggest multinational tech companies.
                 </p>
                 <ul class="mt-4 text-left max-w-2xl mx-auto text-gray-600 space-y-2">
@@ -204,25 +210,25 @@
                         <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        <span>You're officially part of a Microsoft-recognized program.</span>
+                        <span class="font-medium">You're officially part of a Microsoft-recognized program.</span>
                     </li>
                     <li class="flex items-start">
                         <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        <span>Direct resources, mentorship, and recognition from Microsoft.</span>
+                        <span class="font-medium">Direct resources, mentorship, and recognition from Microsoft.</span>
                     </li>
                     <li class="flex items-start">
                         <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        <span>Your title, achievements, and events are backed by Microsoft, adding credibility to your profile.</span>
+                        <span class="font-medium">Your title, achievements, and events are backed by Microsoft, adding credibility to your profile.</span>
                     </li>
                     <li class="flex items-start">
                         <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        <span>Official Microsoft Learn Student Ambassador title on LinkedIn & CV — globally recognized.</span>
+                        <span class="font-medium">Official Microsoft Learn Student Ambassador title on LinkedIn & CV — globally recognized.</span>
                     </li>
                 </ul>
             </div>
@@ -233,41 +239,41 @@
     <section id="benefits" class="py-12 bg-blue-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl font-display">
                     Perks & Benefits
                 </h2>
-                <p class="mt-3 max-w-2xl text-lg text-gray-600 mx-auto">
+                <p class="mt-3 max-w-2xl text-lg text-gray-600 mx-auto font-light">
                     As an MLSA member, you'll enjoy exclusive benefits from Microsoft:
                 </p>
             </div>
             
             <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 benefits-grid">
                 <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-base font-medium text-gray-900">☁ $100+ Azure Credits</h3>
+                    <h3 class="text-base font-semibold text-gray-900">☁ $100+ Azure Credits</h3>
                     <p class="mt-1 text-sm text-gray-500">Monthly credits for free experimentation.</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-base font-medium text-gray-900">🏅 Free Microsoft Certification Vouchers</h3>
+                    <h3 class="text-base font-semibold text-gray-900">🏅 Free Microsoft Certification Vouchers</h3>
                     <p class="mt-1 text-sm text-gray-500">For high-demand skills.</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-base font-medium text-gray-900">🎯 Fast-track to Imagine Cup</h3>
+                    <h3 class="text-base font-semibold text-gray-900">🎯 Fast-track to Imagine Cup</h3>
                     <p class="mt-1 text-sm text-gray-500">With direct Microsoft mentorship.</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-base font-medium text-gray-900">🧑‍💼 1:1 Access to Microsoft Experts</h3>
+                    <h3 class="text-base font-semibold text-gray-900">🧑‍💼 1:1 Access to Microsoft Experts</h3>
                     <p class="mt-1 text-sm text-gray-500">Engage with engineers, product managers & community leads.</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-base font-medium text-gray-900">📦 Event-in-a-box Kits</h3>
+                    <h3 class="text-base font-semibold text-gray-900">📦 Event-in-a-box Kits</h3>
                     <p class="mt-1 text-sm text-gray-500">Ready slides, demos & swag from Microsoft to host sessions.</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-base font-medium text-gray-900">🌏 Collaborate Globally</h3>
+                    <h3 class="text-base font-semibold text-gray-900">🌏 Collaborate Globally</h3>
                     <p class="mt-1 text-sm text-gray-500">Work with MLSAs in 100+ countries on real-world projects.</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h3 class="text-base font-medium text-gray-900">📢 Amplify Your Work</h3>
+                    <h3 class="text-base font-semibold text-gray-900">📢 Amplify Your Work</h3>
                     <p class="mt-1 text-sm text-gray-500">Get featured on Microsoft's global blogs & social media.</p>
                 </div>
             </div>
@@ -278,10 +284,10 @@
     <section id="events" class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl font-display">
                     MLSA Carnival
                 </h2>
-                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto">
+                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto font-light">
                     Fun-filled event with games, workshops and tech talks!
                 </p>
             </div>
@@ -289,10 +295,10 @@
             <div class="mt-8">
                 <div class="flex flex-col md:flex-row md:items-center event-content">
                     <div class="md:w-1/2">
-                        <h3 class="text-xl font-extrabold tracking-tight text-gray-900 sm:text-2xl">
+                        <h3 class="text-xl font-extrabold tracking-tight text-gray-900 sm:text-2xl font-display">
                             MLSA Carnival 2025
                         </h3>
-                        <p class="mt-2 text-base text-gray-500">
+                        <p class="mt-2 text-base text-gray-500 font-light">
                             Our flagship event featuring gaming competitions, hands-on workshops, and engaging tech talks.
                         </p>
                         
@@ -337,10 +343,10 @@
     <section id="contact" class="py-12 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">
+                <h2 class="text-2xl font-extrabold text-gray-900 sm:text-3xl font-display">
                     Get In Touch
                 </h2>
-                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto">
+                <p class="mt-3 max-w-2xl text-lg text-gray-500 mx-auto font-light">
                     Have questions about MLSA LBSCEK? Contact us today!
                 </p>
             </div>
@@ -352,14 +358,14 @@
                             <svg class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            <span class="ml-3 text-gray-600">mlsalbscek@gmail.com</span>
+                            <span class="ml-3 text-gray-600 font-medium">mlsalbscek@gmail.com</span>
                         </li>
                     </ul>
                 </div>
                 
                 <div class="bg-white rounded-lg shadow-md p-6 max-w-md contact-box">
-                    <h2 class="text-lg font-bold text-gray-900">Follow Us</h2>
-                    <p class="mt-2 text-gray-600">Connect with us through our social channels:</p>
+                    <h2 class="text-lg font-bold text-gray-900 font-display">Follow Us</h2>
+                    <p class="mt-2 text-gray-600 font-light">Connect with us through our social channels:</p>
                     <div class="mt-4 flex justify-center space-x-6">
                         <a href="https://www.linkedin.com/company/mlsalbscek/" target="_blank" class="text-blue-600 hover:text-blue-800" aria-label="LinkedIn – MLSA LBSCEK">
                             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -383,28 +389,28 @@
             <div class="flex flex-col md:flex-row md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <img src="https://i.imghippo.com/files/waZ8436ZIQ.jpg" class="h-8">
-                    <p class="mt-2 text-gray-300 text-sm">
+                    <p class="mt-2 text-gray-300 text-sm font-light">
                         MLSA LBSCEK - Empowering students to build technical skills and leadership capabilities.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
                     <div>
-                        <h3 class="text-sm font-semibold text-white tracking-wider uppercase">
+                        <h3 class="text-sm font-semibold text-white tracking-wider uppercase font-display">
                             Quick Links
                         </h3>
                         <ul class="mt-2 space-y-2">
                             <li>
-                                <a href="#about" class="text-xs text-gray-300 hover:text-white">
+                                <a href="#about" class="text-xs text-gray-300 hover:text-white font-light">
                                     About MLSA
                                 </a>
                             </li>
                             <li>
-                                <a href="#benefits" class="text-xs text-gray-300 hover:text-white">
+                                <a href="#benefits" class="text-xs text-gray-300 hover:text-white font-light">
                                     Member Benefits
                                 </a>
                             </li>
                             <li>
-                                <a href="#events" class="text-xs text-gray-300 hover:text-white">
+                                <a href="#events" class="text-xs text-gray-300 hover:text-white font-light">
                                     Events
                                 </a>
                             </li>
@@ -413,7 +419,7 @@
                 </div>
             </div>
             <div class="mt-8 border-t border-gray-700 pt-6">
-                <p class="text-xs text-gray-400 text-center">
+                <p class="text-xs text-gray-400 text-center font-light">
                     &copy; 2023 MLSA LBSCEK. All rights reserved.
                 </p>
             </div>
